@@ -1,4 +1,4 @@
-# pelleworks.github.io
+# Pelle works
 Portfolio site
 
 Built upon yeoman webapp generator.
