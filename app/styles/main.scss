@@ -1,22 +1,37 @@
+// @font-face {
+//   /*font-family: Standard;
+//   src: url(../fonts/standard-book-webfont.woff);*/
+//   font-family: telegraf;
+//   src: url(../fonts/telegraf-medium.otf);
+// }
+
 @font-face {
-  /*font-family: Standard;
-  src: url(../fonts/standard-book-webfont.woff);*/
-  font-family: telegraf;
-  src: url(../fonts/telegraf-medium.otf);
+    font-family: 'telegraf','Helvetica', 'Arial', sans-serif;
+    src: url('fonts/telegraf-medium-webfont.woff2') format('woff2'),
+         url('fonts/telegraf-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-
+// GLOBALS
 body {
   background: black;
-  font-family: telegraf;
+  font-family: 'telegraf','Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  font-style: normal;
   color: white;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  line-height: 0.2 !important;
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  transition: 0.5s;
 }
 
-h1 {font-size: 80px;}
+h1 {font-size: 40px;}
+h2 {font-size: 200px;}
 
+.row {margin: 0;}
+
+//STYLES
 .video {
   position: absolute;
   left: 0;
@@ -29,27 +44,14 @@ h1 {font-size: 80px;}
   overflow: hidden;
 
   video {
-  /*  -webkit-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -o-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    position: relative;
+    position: absolute;
+    width: calc(100vh * (1000 / 562));    /*  video width / height  */
+    height: calc(100vw * (562 / 1000));   /*  video height / width  */
+    min-width: 100%;
+    min-height: 100%;
     top: 50%;
     left: 50%;
-    width: auto;
-    min-width: 100%;
-    height: auto;
-    min-height: 100%;*/
-
-    position: absolute;
-     width: calc(100vh * (1000 / 562));    /*  video width / height  */
-     height: calc(100vw * (562 / 1000));   /*  video height / width  */
-     min-width: 100%;
-     min-height: 100%;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
 }
@@ -62,34 +64,17 @@ h1 {font-size: 80px;}
 .hero {
   height: 100vh;
   width:100vw;
-  padding:60px;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  justify-content: space-between;
+  padding:30px 15px;
+  // display: flex;
+  // flex-wrap: nowrap;
+  // flex-direction: column;
+  // justify-content: space-between;
 
-  video {
-    /*
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -o-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    */
-  }
 
-  h1 {
-    width: 50%;
-    line-height: 0.9 !important;
-    margin-top: -15px;
+  h1 {line-height: 1.05 !important;}
+  h2 {
+    margin-bottom: -55px;
+
   }
 }
 
@@ -97,15 +82,68 @@ h1 {font-size: 80px;}
 .button {
   height: 60px;
   border-radius: 30px;
-  border: solid white 3px;
+  border: solid white 4px;
   font-size: 40px;
-  padding:25px 12px;
+  padding:0 12px;
   display: inline-block;
   color: white;
-  margin-right: 30px;
+  margin-left: 30px;
+
 
   &:hover {
     color: white;
     text-decoration: line-through;
+
+  }
+}
+
+.projects {
+  padding: 30px 15px;
+  .col {
+    padding: 0 15px;
+    a {
+
+      color: white;
+      text-decoration: none;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 3px;
+      }
+      h2 {
+        font-size: 40px;
+        color: white;
+        margin-top: 30px;
+        margin-bottom: 60px;
+
+        &:hover {
+          text-decoration: none;
+
+        }
+      }
+    }
+  }
+
+}
+
+.footer {
+  padding:60px 15px;
+  margin-bottom: 120px;
+}
+.button-big {
+
+  border-radius: 430px;
+  border: solid white 4px;
+  font-size: 80px;
+  padding:0 40px;
+  display: inline-block;
+
+  color: white;
+
+  &:hover {
+    color: white;
+    text-decoration: line-through;
+
   }
 }

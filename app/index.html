@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
     <title>Pelle Evertsson • 3D generalist & Digital designer</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -25,30 +25,71 @@
     <div class="container">
 
       <div class="video">
-        <video id="vid" playsinline muted autoplay loop poster="posterimage.jpg">
-        </video>
+      <video id="vid" playsinline muted autoplay loop poster="posterimage.jpg"></video>
       </div>
 
-      <div class="hero">
+      <div class="hero d-flex flex-column justify-content-between">
 
-        <h1>pelle.works at Bacill as a UX & Motion designer.</h1>
+        <div class="row">
 
-        <div class="button-wrapper">
-          <a class="button" href="#">mail</a>
-          <a class="button" href="#">insta</a>
-          <a class="button" href="#">linkedin</a>
+          <div class="col-6">
+            <h1 >Im a big generalist, but mostly focusing on product
+              design and 3D. Below are some selected works.</h1>
+          </div>
+
+          <div class="col-6 d-flex justify-content-end button-wrapper">
+            <a class="button" href="#">mail</a>
+            <a class="button" href="#">insta</a>
+            <a class="button" href="#">linkedin</a>
+          </div>
+
         </div>
 
+        <div class="row">
+          <h2 class="col">Pelle.works</h2>
+        </div>
 
       </div>
 
+      <div class="row projects">
 
+        <div class="col col-md-6 col-sm-12">
+          <a class="color-change" href="#">
+            <img class="img-color" src="images/rein.jpg"/>
+            <h2>REIN</h2>
+          </a>
+        </div>
+
+        <div class="col col-md-6 col-sm-12">
+          <a class="color-change" href="#">
+            <img class="img-color" src="images/triss.jpg"/>
+            <h2>Triss</h2>
+          </a>
+        </div>
+
+        <div class="col col-md-6 col-sm-12">
+          <a href="#">
+            <img src="images/sodastream.jpg"/>
+            <h2>Sodastream</h2>
+          </a>
+        </div>
+
+        <div class="col col-md-6 col-sm-12">
+          <a href="#">
+            <img src="images/smycka.jpg"/>
+            <h2>Smycka</h2>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="row footer">
+        <div class="col">
+          <a class="button-big" href="https://www.behance.net/pelle-evertsson" target="_blank">Want more? check this out!</a>
+        </div>
+      </div>
 
     </div>
-
-
-
-
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -67,6 +108,7 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 
   </body>
 </html>

@@ -1,42 +1,86 @@
+"use strict";
+
 console.log('\'Allo \'Allo!'); // Determine which hero-video to load depending on screen-size
 
-var w = window.matchMedia("(max-width: 425px)");
-var vid = document.getElementById("vid");
-var source = document.createElement("source");
-source.id = "hvid";
-source.setAttribute("type", "video/mp4");
+var w = window.matchMedia('(max-width: 425px)');
+var vid = document.getElementById('vid');
+var source = document.createElement('source');
+source.id = 'hvid';
+source.setAttribute('type', 'video/mp4');
 vid.appendChild(source);
 
 if (w.matches) {
   vid.pause();
-  source.removeAttribute("src");
-  source.setAttribute("src", "images/bomb-high.mp4");
+  source.removeAttribute('src');
+  source.setAttribute('src', 'images/bomb-high.mp4');
   vid.load();
   vid.play();
 } else {
   vid.pause();
-  source.removeAttribute("src");
-  source.setAttribute("src", "images/bomb-wide.mp4");
+  source.removeAttribute('src');
+  source.setAttribute('src', 'images/bomb-wide.mp4');
   vid.load();
   vid.play();
 }
 
-window.addEventListener("resize", function () {
-  var w = window.matchMedia("(max-width: 425px)");
-  var vid = document.getElementById("vid");
-  var source = document.getElementById("hvid");
+window.addEventListener('resize', function () {
+  var w = window.matchMedia('(max-width: 425px)');
+  var vid = document.getElementById('vid');
+  var source = document.getElementById('hvid');
 
   if (w.matches) {
     vid.pause();
-    source.src = "images/bomb-high.mp4";
+    source.src = 'images/bomb-high.mp4';
     vid.load();
     vid.play();
   } else {
     vid.pause();
-    source.src = "images/bomb-wide.mp4";
+    source.src = 'images/bomb-wide.mp4';
     vid.load();
     vid.play();
   }
+});
+/*
+document.querySelector(".color-change").onmouseover = function() {
+  console.log("den fattar");
+  function colorChange(){
+    //Be sure to include <img id="coverImage" src="" alt=""/>
+    var $myImage = $(".img-color");
+    var colorThief = new ColorThief();
+
+    //Grabs 8 swatch color palette from image and sets quality to 5 (0 =slow, 10=default/fast)
+    var cp = colorThief.getPalette($myImage[0], 8, 5);
+
+    //Sets background to 3rd color in the palette.
+    $('body').css('background-color', 'rgb('+cp[2][0]+','+cp[2][1]+','+cp[2][2]+')');
+  }
+
+  $(document).ready(function() {
+    //Make sure image is loaded before running.
+    colorChange();
+  });
+};
+*/
+
+$(".color-change").hover(function () {
+  console.log("hover");
+
+  function colorChange() {
+    //Be sure to include <img id="coverImage" src="" alt=""/>
+    var $myImage = $(".img-color");
+    var colorThief = new ColorThief(); //Grabs 8 swatch color palette from image and sets quality to 5 (0 =slow, 10=default/fast)
+
+    var cp = colorThief.getPalette($myImage[0], 8, 5); //Sets background to 3rd color in the palette.
+
+    $('body').css('background-color', 'rgb(' + cp[2][0] + ',' + cp[2][1] + ',' + cp[2][2] + ')');
+  }
+
+  $(document).ready(function () {
+    //Make sure image is loaded before running.
+    colorChange();
+  });
+}, function () {
+  $('body').css('background-color', 'black');
 }); // fade in video after loading
 
 /*
