@@ -1,6 +1,91 @@
 "use strict";
 
-console.log('\'Allo \'Allo!'); // Determine which hero-video to load depending on screen-size
+console.log('\'Allo \'Allo!'); // ******* CHANGE COLOR ON HOVER *********
+//REIN
+
+$('.rein').hover(function () {
+  console.log('hover');
+  $('body').css('background-color', '#AF1105');
+}, function () {
+  $('body').css('background-color', 'black');
+}); //TRISS
+
+$('.triss').hover(function () {
+  console.log('hover');
+  $('body').css('background-color', '#D8D8D8');
+}, function () {
+  $('body').css('background-color', 'black');
+}); //SODASTREAM
+
+$('.sodastream').hover(function () {
+  console.log('hover');
+  $('body').css('background-color', '#9C6AB2');
+}, function () {
+  $('body').css('background-color', 'black');
+}); //SMYCKA
+
+$('.smycka').hover(function () {
+  console.log('hover');
+  $('body').css('background-color', '#C8A973');
+}, function () {
+  $('body').css('background-color', 'black');
+}); // Write on write woff
+
+var TxtType = function TxtType(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtType.prototype.tick = function () {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) {
+    delta /= 2;
+  }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function () {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function () {
+  var elements = document.getElementsByClassName('typewrite');
+
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-type');
+    var period = elements[i].getAttribute('data-period');
+
+    if (toRotate) {
+      new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+}; // Determine which hero-video to load depending on screen-size
+
 
 var w = window.matchMedia('(max-width: 425px)');
 var vid = document.getElementById('vid');
@@ -39,72 +124,33 @@ window.addEventListener('resize', function () {
     vid.load();
     vid.play();
   }
-});
-/*
-document.querySelector(".color-change").onmouseover = function() {
-  console.log("den fattar");
-  function colorChange(){
-    //Be sure to include <img id="coverImage" src="" alt=""/>
-    var $myImage = $(".img-color");
-    var colorThief = new ColorThief();
-
-    //Grabs 8 swatch color palette from image and sets quality to 5 (0 =slow, 10=default/fast)
-    var cp = colorThief.getPalette($myImage[0], 8, 5);
-
-    //Sets background to 3rd color in the palette.
-    $('body').css('background-color', 'rgb('+cp[2][0]+','+cp[2][1]+','+cp[2][2]+')');
-  }
-
-  $(document).ready(function() {
-    //Make sure image is loaded before running.
-    colorChange();
-  });
-};
-*/
-
-$(".color-change").hover(function () {
-  console.log("hover");
-
-  function colorChange() {
-    //Be sure to include <img id="coverImage" src="" alt=""/>
-    var $myImage = $(".img-color");
-    var colorThief = new ColorThief(); //Grabs 8 swatch color palette from image and sets quality to 5 (0 =slow, 10=default/fast)
-
-    var cp = colorThief.getPalette($myImage[0], 8, 5); //Sets background to 3rd color in the palette.
-
-    $('body').css('background-color', 'rgb(' + cp[2][0] + ',' + cp[2][1] + ',' + cp[2][2] + ')');
-  }
-
-  $(document).ready(function () {
-    //Make sure image is loaded before running.
-    colorChange();
-  });
-}, function () {
-  $('body').css('background-color', 'black');
-}); // fade in video after loading
-
-/*
-var e = document.getElementById("vid");
-e.style.opacity = 0;
-
-var vid = document.getElementById("vid");
-vid.oncanplaythrough = function() {
-    setTimeout(function() {
-        var e = document.getElementById('vid');
-        fade(e);
-    }, 5000);
-};
-
-function fade(element) {
-    var op = 0;
-    var timer = setInterval(function() {
-        if (op >= 1) clearInterval(timer);
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1 || 0.1;
-    }, 50);
-}
-*/
+}); //
+// $('.color-change').hover(
+//
+//   function () {
+//     console.log('hover');
+//     function colorChange(){
+//       //Be sure to include <img id="coverImage" src="" alt=""/>
+//       var $myImage = $('.img-color');
+//       var colorThief = new ColorThief();
+//
+//       //Grabs 8 swatch color palette from image and sets quality to 5 (0 =slow, 10=default/fast)
+//       var cp = colorThief.getPalette($myImage[0], 8, 5);
+//
+//       //Sets background to 3rd color in the palette.
+//       $('body').css('background-color', 'rgb('+cp[2][0]+','+cp[2][1]+','+cp[2][2]+')');
+//     }
+//
+//     $(document).ready(function() {
+//       //Make sure image is loaded before running.
+//       colorChange();
+//     });
+//   },
+//   function () {
+//     $('body').css('background-color', 'black');
+//   }
+// );
+// .color-change class is for the <a> .img-color is for the <img>
 // Uncomment to enable Bootstrap tooltips
 // https://getbootstrap.com/docs/4.0/components/tooltips/#example-enable-tooltips-everywhere
 // $(function () { $('[data-toggle="tooltip"]').tooltip(); });
