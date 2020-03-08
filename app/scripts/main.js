@@ -101,44 +101,44 @@ var TxtType = function(el, toRotate, period) {
     };
 
     // Determine which hero-video to load depending on screen-size
-      var w = window.matchMedia('(max-width: 425px)');
-      var vid = document.getElementById('vid');
-      var source = document.createElement('source');
-      source.id = 'hvid';
-      source.setAttribute('type', 'video/mp4');
-      vid.appendChild(source);
-
-      if (w.matches) {
-        vid.pause();
-        source.removeAttribute('src');
-        source.setAttribute('src', 'images/bomb-high.mp4');
-        vid.load();
-        vid.play();
-      } else {
-        vid.pause();
-        source.removeAttribute('src');
-        source.setAttribute('src', 'images/bomb-wide.mp4');
-        vid.load();
-        vid.play();
-      }
-
-    window.addEventListener('resize', function(){
-      var w = window.matchMedia('(max-width: 425px)');
-      var vid = document.getElementById('vid');
-      var source = document.getElementById('hvid');
-
-      if (w.matches) {
-        vid.pause();
-        source.src = 'images/bomb-high.mp4';
-        vid.load();
-        vid.play();
-      } else {
-        vid.pause();
-        source.src = 'images/bomb-wide.mp4';
-        vid.load();
-        vid.play();
-      }
-    });
+    //   var w = window.matchMedia('(max-width: 425px)');
+    //   var vid = document.getElementById('vid');
+    //   var source = document.createElement('source');
+    //   source.id = 'hvid';
+    //   source.setAttribute('type', 'video/mp4');
+    //   vid.appendChild(source);
+    //
+    //   if (w.matches) {
+    //     vid.pause();
+    //     source.removeAttribute('src');
+    //     source.setAttribute('src', 'images/bomb-high.mp4');
+    //     vid.load();
+    //     vid.play();
+    //   } else {
+    //     vid.pause();
+    //     source.removeAttribute('src');
+    //     source.setAttribute('src', 'images/bomb-wide.mp4');
+    //     vid.load();
+    //     vid.play();
+    //   }
+    //
+    // window.addEventListener('resize', function(){
+    //   var w = window.matchMedia('(max-width: 425px)');
+    //   var vid = document.getElementById('vid');
+    //   var source = document.getElementById('hvid');
+    //
+    //   if (w.matches) {
+    //     vid.pause();
+    //     source.src = 'images/bomb-high.mp4';
+    //     vid.load();
+    //     vid.play();
+    //   } else {
+    //     vid.pause();
+    //     source.src = 'images/bomb-wide.mp4';
+    //     vid.load();
+    //     vid.play();
+    //   }
+    // });
 
 //
 // $('.color-change').hover(
