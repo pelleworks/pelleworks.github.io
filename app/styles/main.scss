@@ -1,47 +1,100 @@
-// @font-face {
-//   /*font-family: Standard;
-//   src: url(../fonts/standard-book-webfont.woff);*/
-//   font-family: telegraf;
-//   src: url(../fonts/telegraf-medium.otf);
-// }
+@import url('https://fonts.googleapis.com/css?family=Inter&display=swap');
 
-@font-face {
-  font-family: 'Telegraf-Medium';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../fonts/Telegraf-Medium.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/Telegraf-Medium.svg#Telegraf-Medium') format('svg'),
-       url('../fonts/Telegraf-Medium.ttf') format('truetype'),
-       url('../fonts/Telegraf-Medium.woff') format('woff'),
-       url('../fonts/Telegraf-Medium.woff2') format('woff2'),
-       url('../fonts/Telegraf-Medium.eot');
-}
-
-// GLOBALS
+// ••••••••• GLOBALS •••••••••••
 body {
-  background: black;
-  font-family: 'Telegraf-Medium','Helvetica', 'Arial', sans-serif;
+  // font-family: 'Telegraf-Medium','Helvetica', 'Arial', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: normal;
   font-style: normal;
-  color: white;
+  color: black;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   transition: 0.5s;
+  background-color: black;
+  z-index: -99999;
+  position: relative;
 }
 
-.container {
-  overflow: hidden;
+a {
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
+ul, li {
+  list-style: none;
+}
+
+.white-text {
+  color: white;
+}
+
+.bg-grey {background-color: #DADADA;}
+.bg-black {background-color: black;}
+
+.container-fluid {
+  padding: 0;
 }
 
 .row {margin: 0;}
 
 .copy {
-  font-size: 30px;
+  font-size: 25px;
+  line-height: 35px;
+  margin-top: -10px;
   @media (max-width: 575.98px) {
     font-size: 20px;
   }
 }
-//STYLES
+
+.rubrik {
+  font-size: 50px;
+  line-height: 60.5px;
+  margin-top: -10px;
+  @media (max-width: 575.98px) {
+    font-size: 20px;
+  }
+}
+
+
+// ••••••• STYLES •••••••••
+
+// HEADER
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 30px 15px 0 15px;
+  .header-inner {
+    position: static;
+  }
+
+  .dropdown-toggle {
+    &::after {
+      display:none;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: transparent;
+    padding: 0;
+    margin:22px 0 0 0;
+    border: none;
+    .dropdown-item {
+      padding:0 15px;
+
+      &:hover {
+        color: black;
+        text-decoration: underline;
+        background-color: transparent;
+      }
+    }
+  }
+
+}
+// END HEADER
+
+// BG-VIDEO
 .video {
   position: absolute;
   left: 0;
@@ -78,162 +131,64 @@ body {
     display: block;
   }
 }
-
-.container {
-  min-width: 100%;
-  padding:0;
-}
+// END BG-VIDEO
 
 .hero {
-  height: 100vh;
+  height: calc(100vh);
   width:100vw;
-  padding:25px 45px 60px 45px;
+  padding:30px 15px;
+  text-align: center;
+  pointer-events: none;
+  //color: white;
   @media (max-width: 575.98px) {
-    padding:20px 15px 30px 15px;
+    padding:30px 15px;
   }
   @media (min-width: 576px) and (max-width: 1199.98px) {
-    padding:40px 45px 60px 45px;
-  }
-  .big-text-wrapper {
-    padding: 0 15px;
-    .big-text {
-      font-size: 160px;
-      line-height: 1;
-      display: inline;
-      padding: 0;
-      @media (max-width: 575.98px) {
-        font-size: 55px;
-        display: block;
-      }
-      @media (min-width: 576px) and (max-width: 1199.98px) {
-        font-size: 80px;
-      }
-    }
-  }
-
-}
-
-
-.button {
-  height: 64px;
-  border-radius: 32px;
-  font-size: 40px;
-  border: solid white 2.5px;
-  padding:0 12px;
-  display: inline-block;
-  color: white;
-  transition: all 0.2s ease;
-  @media (max-width: 575.98px) {
-    height: 52px;
-    font-size:30px;
-  }
-
-  &:hover {
-    color: white;
-    text-decoration: none;
-    -ms-transform: rotate(-5deg);
-    -moz-transform: rotate(-5deg);
-    -webkit-transform: rotate(-5deg);
-    -o-transform: rotate(-5deg);
-    transform: rotate(-5deg);
+    padding:30px 15px;
   }
 }
 
-.projects {
-  padding: 60px 30px;
-  @media (max-width: 575.98px) {
-    padding: 30px 15px;
-  }
-  .col {
-    padding: 0 30px;
-    @media (max-width: 575.98px) {
-      padding: 0 15px;
-    }
-    a {
-
-      color: white;
-      text-decoration: none;
-
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 15px;
-      }
-      p {
-        font-size: 40px;
-        color: white;
-        margin-top: 15px;
-        margin-bottom: 60px;
-
-        &:hover {
-          text-decoration: none;
-
-        }
-      }
-    }
-  }
-
+.footer-index-fix {
+  height: 200px;
+  width: 100%;
+  pointer-events: none;
+  display: block;
 }
-
 .footer {
-  padding:60px 45px;
-  margin-bottom: 120px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+  a {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
 
   @media (max-width: 767px) {
-    margin-bottom: 60px;
-    padding:0 45px;
+
   }
   @media (max-width: 575.98px) {
-    padding: 0 15px;
-  }
-}
-.button-big {
 
-  border-radius: 60px;
-  border: solid white 4px;
-  font-size: 80px;
-  padding:0 40px;
-  display: inline-block;
-  color: white;
-  transition: all 0.2s ease;
-
-  @media (max-width: 1485px) {
-    font-size: 55px;
-    padding:0 30px;
-  }
-  @media (max-width: 1075px) {
-    font-size: 30px;
-    padding:0 20px;
-    border: solid white 2px;
-  }
-  @media (max-width: 575.98px) {
-    font-size: 20px;
-    padding: 5px 10px;
-  }
-
-  &:hover {
-    color: white;
-    text-decoration: none;
-    -ms-transform: rotate(-2deg);
-    -moz-transform: rotate(-2deg);
-    -webkit-transform: rotate(-2deg);
-    -o-transform: rotate(-2deg);
-    transform: rotate(-2deg);
   }
 }
 
+// SPINNER
+.spin-wrapper {height:90px;}
 .spin {
   width:300px;
   height: 300px;
-  margin-right: -180px;
-  margin-top: -90px;
   text-align: center;
-  -webkit-animation: spin 15s linear infinite;
-  -moz-animation: spin 15s linear infinite;
-  -ms-animation: spin 15s linear infinite;
-  -o-animation: spin 15s linear infinite;
-  animation: spin 15s linear infinite;
-
+  -webkit-animation: spin 13s linear infinite;
+  -moz-animation: spin 13s linear infinite;
+  -ms-animation: spin 13s linear infinite;
+  -o-animation: spin 13s linear infinite;
+  animation: spin 13s linear infinite;
+  margin-left: -130px;
     @media (max-width: 767px) {
       margin-right: 0;
       margin-top: 60px;
@@ -271,3 +226,4 @@ body {
       transform: rotate(-360deg);
     }
   }
+  // END SPINNER
