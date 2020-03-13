@@ -19,6 +19,7 @@ a {
   color: black;
   &:hover {
     color: black;
+    text-decoration: underline;
   }
 }
 
@@ -45,6 +46,8 @@ ul, li {
   margin-top: -10px;
   @media (max-width: 575.98px) {
     font-size: 20px;
+    line-height: 26px;
+    margin-top: -8px;
   }
 }
 
@@ -53,7 +56,8 @@ ul, li {
   line-height: 60.5px;
   margin-top: -10px;
   @media (max-width: 575.98px) {
-    font-size: 20px;
+    font-size: 40px;
+    line-height: 50px;
   }
 }
 
@@ -67,9 +71,17 @@ ul, li {
   padding: 30px 15px 0 15px;
   .header-inner {
     position: static;
+
+    .header-link {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   .dropdown-toggle {
+    display: inline;
     &::after {
       display:none;
     }
@@ -78,11 +90,11 @@ ul, li {
   .dropdown-menu {
     background-color: transparent;
     padding: 0;
-    margin:22px 0 0 0;
+    margin:45px 0 0 0;
     border: none;
     .dropdown-item {
-      padding:0 15px;
-
+      padding:0;
+      text-decoration: none;
       &:hover {
         color: black;
         text-decoration: underline;
@@ -153,7 +165,12 @@ ul, li {
   width: 100%;
   pointer-events: none;
   display: block;
+
+  @media (max-width: 767px) {
+    height: 400px;
+  }
 }
+
 .footer {
   position: fixed;
   left: 0;
@@ -170,7 +187,7 @@ ul, li {
   }
 
   @media (max-width: 767px) {
-
+    height: 400px;
   }
   @media (max-width: 575.98px) {
 
@@ -178,22 +195,25 @@ ul, li {
 }
 
 // SPINNER
-.spin-wrapper {height:90px;}
+.spin-wrapper {
+  height:90px;
+  @media (max-width: 767px) {
+    height: 150px;
+  }
+}
 .spin {
   width:300px;
   height: 300px;
+  margin-left: -130px;
   text-align: center;
   -webkit-animation: spin 13s linear infinite;
   -moz-animation: spin 13s linear infinite;
   -ms-animation: spin 13s linear infinite;
   -o-animation: spin 13s linear infinite;
   animation: spin 13s linear infinite;
-  margin-left: -130px;
     @media (max-width: 767px) {
-      margin-right: 0;
-      margin-top: 60px;
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
     }
 
   }
