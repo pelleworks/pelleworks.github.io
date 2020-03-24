@@ -4,16 +4,16 @@ console.log('\'Allo \'Allo!');
 
 function iconChange() {
   setTimeout(function () {
-    document.getElementById("icon").href = "images/favicon/favicon1.png";
+    document.getElementById('icon').href = 'images/favicon/favicon1.png';
   }, 500);
   setTimeout(function () {
-    document.getElementById("icon").href = "images/favicon/favicon2.png";
+    document.getElementById('icon').href = 'images/favicon/favicon2.png';
   }, 1000);
   setTimeout(function () {
-    document.getElementById("icon").href = "images/favicon/favicon3.png";
+    document.getElementById('icon').href = 'images/favicon/favicon3.png';
   }, 1500);
   setTimeout(function () {
-    document.getElementById("icon").href = "images/favicon/favicon4.png";
+    document.getElementById('icon').href = 'images/favicon/favicon4.png';
   }, 2000);
 }
 

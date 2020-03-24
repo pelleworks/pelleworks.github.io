@@ -83,39 +83,6 @@ ul, li {
     }
   }
 
-  .dropdown-toggle {
-    display: inline;
-    &::after {
-      display:none;
-    }
-  }
-
-  .dropdown-menu {
-    background-color: transparent;
-    padding: 0;
-    margin:45px 0 0 0;
-    border: none;
-
-    @media (max-width: 767px) {
-      margin: 100px 0 0 0;
-      padding-left: 18px;
-    }
-    @media (max-width: 395px) {
-      margin: 145px 0 0 0;
-      padding-left: 18px;
-    }
-
-    .dropdown-item {
-      padding:0;
-      text-decoration: none;
-      color: white;
-      &:hover {
-        color: white;
-        text-decoration: underline;
-        background-color: transparent;
-      }
-    }
-  }
 
 }
 // END HEADER
